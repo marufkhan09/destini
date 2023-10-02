@@ -32,12 +32,12 @@ class ViewController: UIViewController {
         storyLabel.text = storyBrain.nextStory(selectedDest: selectedChoice).title
         choice1Button.setTitle(storyBrain.nextStory(selectedDest: selectedChoice).choice1, for: .normal)
         choice2Button.setTitle(storyBrain.nextStory(selectedDest: selectedChoice).choice2, for: .normal)
-        print(sender.currentTitle!)
-//        if(sender.currentTitle){
-//            
-//        }else{
-//            
-//        }
+        
+        if(sender.currentTitle! == choice1Button.titleLabel!.text){
+            storyBrain.updateDestination(storyNo: storyBrain.nextStory(selectedDest: selectedChoice).choice1Destination)
+        }else{
+            storyBrain.updateDestination(storyNo: storyBrain.nextStory(selectedDest: selectedChoice).choice2Destination)
+        }
         
     }
     
